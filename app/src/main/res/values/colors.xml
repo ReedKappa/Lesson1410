@@ -3,4 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="new_message">#00FF55</color>
+    <color name="time_color">#808080</color>
+    <color name="week_item_color">#75998282</color>
 </resources>
