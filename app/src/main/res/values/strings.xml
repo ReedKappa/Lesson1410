@@ -8,7 +8,7 @@
     <string name="Thursday">Четверг</string>
     <string name="Friday">Пятница</string>
     <string name="Saturday">Суббота</string>
-    <string name="Sunday">Воскресень</string>
+    <string name="Sunday">Воскресенье</string>
     <string name="timeEnterval">С %1$s до %2$s</string>
     <string name="lessonAmountAdditionText">%1$s пары </string>
 </resources>
