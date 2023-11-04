@@ -98,6 +98,41 @@ object WeekScheduleData {
                         lessonAudience = "дистант"
                     )
                 )
+            ),
+            Week(
+                dayOfTheWeek = WeekDays.SATURDAY,
+                lessonAmount = 4,
+                startsWith = 2,
+                lessons = listOf<LessonData>(
+                    LessonData(
+                        timeStart = "9:40",
+                        timeEnd = "11:10",
+                        disciplineName = "Android",
+                        lecturerName = "Никиточка",
+                        lessonAudience = "132 каб."
+                    ),
+                    LessonData(
+                        timeStart = "11:20",
+                        timeEnd = "12:50",
+                        disciplineName = "Android",
+                        lecturerName = "Никиточка",
+                        lessonAudience = "132 каб."
+                    ),
+                    LessonData(
+                        timeStart = "13:15",
+                        timeEnd = "14:45",
+                        disciplineName = "Android",
+                        lecturerName = "Никиточка",
+                        lessonAudience = "132 каб."
+                    ),
+                    LessonData(
+                        timeStart = "15:00",
+                        timeEnd = "16:30",
+                        disciplineName = "Android",
+                        lecturerName = "Никиточка",
+                        lessonAudience = "132 каб."
+                    )
+                )
             )
         )
 }

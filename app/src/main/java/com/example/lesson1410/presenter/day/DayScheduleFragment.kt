@@ -10,6 +10,8 @@ import com.example.lesson1410.WeekScheduleData
 import com.example.lesson1410.data.LessonData
 import com.example.lesson1410.data.PersonData
 import com.example.lesson1410.databinding.FragmentDayScheduleBinding
+import java.time.LocalDate
+import java.util.Calendar
 
 class DayScheduleFragment: Fragment() {
 
@@ -22,7 +24,7 @@ class DayScheduleFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding?.myFirstRecycler?.adapter = this.adapter
         binding?.myFirstRecycler?.layoutManager = LinearLayoutManager(requireContext())
-        lessons.addAll(WeekScheduleData.list[1].lessons)
+        lessons.addAll(WeekScheduleData.list[getDay()].lessons)
         adapter?.submitList(lessons)
     }
 
@@ -33,6 +35,11 @@ class DayScheduleFragment: Fragment() {
     ): View? {
         binding = FragmentDayScheduleBinding.inflate(inflater, container, false)
         return binding?.root
+    }
+
+    private fun getDay(): Int {
+        val calendar: Calendar = Calendar.getInstance()
+        return calendar.get(Calendar.DAY_OF_WEEK) - 1
     }
 
     companion object {
