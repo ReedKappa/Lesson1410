@@ -1,23 +1,17 @@
 package com.example.lesson1410.presenter.day
 
-import android.icu.util.ULocale
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.lesson1410.R
 import com.example.lesson1410.WeekScheduleData
 import com.example.lesson1410.data.LessonData
-import com.example.lesson1410.data.PersonData
 import com.example.lesson1410.databinding.FragmentDayScheduleBinding
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.util.Calendar
 import java.util.Date
-import java.util.Locale
 
 class DayScheduleFragment : Fragment() {
 
@@ -68,12 +62,21 @@ class DayScheduleFragment : Fragment() {
     }
 
     private fun changeFlagOfCurrentLesson() {
-        val curTime = getTime()
+        val curTime = getTime().split(":")
         for (elem in lessons) {
-            if (elem.timeStart.split(":")[0].toInt() < curTime.split(":")[0].toInt()
-                && elem.timeEnd.split(":")[0].toInt() > curTime.split(":")[0].toInt()
-            ) {
-                elem.isCurrentLesson = true
+            val splitElemTimeStart = elem.timeStart.split(":")
+            val splitElemTimeEnd = elem.timeEnd.split(":")
+            //СЮДА ЛУЧШЕ НЕ СМОТРЕТЬ)))
+            if (curTime[0].toInt() >= splitElemTimeStart[0].toInt()) {
+                if (curTime[0].toInt() == splitElemTimeEnd[0].toInt()) {
+                    if (curTime[1].toInt() < splitElemTimeEnd[1].toInt()) {
+                        elem.isCurrentLesson = true
+                    } else continue
+                } else if (curTime[1].toInt() > splitElemTimeStart[1].toInt()) {
+                    elem.isCurrentLesson = true
+                } else if (curTime[0].toInt() < splitElemTimeEnd[0].toInt()) {
+                    elem.isCurrentLesson = true
+                } else continue
             }
         }
     }
